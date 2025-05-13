@@ -1,6 +1,8 @@
 import streamlit as st
 import requests
 
+token = st.secrets["tata_tele"]["crud"]
+
 st.set_page_config(page_title="Tata Tele WhatsApp Template Creator", layout="centered")
 
 st.title("📩 WhatsApp Template Creator - Tata Tele")
@@ -29,7 +31,7 @@ if submitted:
 
     headers = {
         "accept": "application/json",
-        "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6Iis5MTE4MDA1NzE3MDAwIiwicGhvbmVOdW1iZXJJZCI6IjE2ODk1ODM4NjI5Mjk0OCIsImlhdCI6MTY5ODczNDY1M30.gXR-VVX0k9FL4vTGc2tBMaxBO5l2leMOz_au2N8aM-A",  # 🔐 Replace with actual token or secure it using st.secrets
+        "Authorization": token,  # 🔐 Replace with actual token or secure it using st.secrets
         "Content-Type": "application/json"
     }
 

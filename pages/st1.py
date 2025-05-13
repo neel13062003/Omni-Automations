@@ -3,7 +3,12 @@ import requests
 from streamlit_tags import st_tags
 import pandas as pd
 import json
+import streamlit as st
 from io import StringIO
+
+
+# Load the secure token from secrets
+token = st.secrets["tata_tele"]["login"]
 
 # Fetch template data from API
 def fetch_templates():
@@ -11,7 +16,7 @@ def fetch_templates():
     
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzE4OTQyMDg4M2U4ZTgwMzk0MGI1YTQiLCJhY2Nlc3MiOiJhdXRoIiwiZGV2aWNlIjoid2ViQXBwIiwiaWF0IjoxNzQ3MTE1MzQ1LCJleHAiOjE3NDczNzQ1NDV9.Xy2RG4vYlkeMHimoIjPkAFiZ7Bqecm6CIhZkJoEH7bL_Tl-qzf3gHwhqFka1WL4duOdq192qoB_X1gHmT_8N1PT1BXsHtD9RVyjeFx-z2guCgDsCXlvVBG-9-3Ys_c_z-Zpm7AKMigFjl6S0P8vh78up7bjmUK7RSRNklODSHfnkdCOO3xVqlo1F3NCR-emvCCydJV_25uVlFqdZ47nRkf6K49Fw8fMhEE0WiLjtcQN3lfUVTWHqlQ37sjwxQ2sH_1s1SNyDG2H7w_G0rvFnhv_uXwQgNFOkL5CLlmNP2yfW4F_S5zzbCAknNPkEAt9oPTPqOEo4jO8_bvyVJy67k4SGB-f81dPFB1WWSIm2985bvXE1BYj4whN0KbQGdRm2ZAdV7JEEkvO4UKg8pXz38bg5-QdcPb98Q_GSHGEjX5pc5d0LmM-nQGg5V5YhAM1yroo_9t_K47viH0OTfe4tAler2oQuE-NHSX1SoH1HyYKZyqQDulb8xue9LK9qzGE_RDhtrlNy7L4Kw2vFZ6S2n96trTj-iq00BDhEZCwAS89vcv-siC1o6QvATwEN2jrGHIFZfIfdG8AQluK6RSoBvGJrrVPtibLBdaE2_H792cC2ka6yh2Skm-ZfcNP2eK9q2isZQdw15y3YI02fwI-hGHDlA3HmtWGlsGjYdhucYCU",
+        "Authorization": token,
         "Accept": "application/json, text/plain, */*",
         "Origin": "https://omni.tatatelebusiness.com",
         "Referer": "https://omni.tatatelebusiness.com/",
